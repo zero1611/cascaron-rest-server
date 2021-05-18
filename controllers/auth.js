@@ -68,10 +68,7 @@
                     msg: 'Comuniquese con el administrador, usuario bloqueado'
                 })
             }
-            res.json({
-                msg: 'Todo ok! google signin',
 
-            })
             const token = await generarJWT(user.id);
             res.json({
                 user,
