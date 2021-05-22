@@ -1,6 +1,6 @@
 
 const {
-    esAdminRole,tieneRole,validarJwt,validarCampos
+    esAdminRole,validarJwt,validarCampos
 } = require('../middlewares/indexx')
 const {esRoleValid, esEmailValid,esUserValid}= require("../helpers/db-validators");
 const {check} = require("express-validator");
@@ -28,8 +28,7 @@ router.post('/', [
 ], userPost)
 router.delete('/:id',[
     validarJwt,
-    // esAdminRole,
-    tieneRole('ADMIN_ROLE','VENTAS_ROLE'),
+    esAdminRole,
     check('id', 'No es un ID de Usuario Valido').isMongoId(),
     check('id').custom(esUserValid),
     validarCampos
