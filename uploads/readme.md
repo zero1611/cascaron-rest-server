@@ -1,0 +1,1 @@
+En esta seccion se guardaran todos los archivos o imagenes que sean subidos

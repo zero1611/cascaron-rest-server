@@ -1,0 +1,55 @@
+Cando en la terminal arrastaras la carpeta del proyecto colocandole cd antes vas directo a la ruta.
+aca si pones node nombreArchivojs se ejecuta por consola el archivo y si queremos ejecutarlo con nodemon:  
+nodemon nombreArchivojs
+
+WriteFile
+Crear un archivo con la informacion recibida
+crear una const 
+const fs = require('fs');
+
+let salida= '';
+
+for(i =1;i <= 10; i++){
+    salida += 5 * ${i} = ${5*i}\n;
+}
+
+fs.writeFile('tabla-5.txt', salida, (err) => {
+    if(err) throw err;
+
+    console.log('tabla-5.txt creado')
+})
+
+Crear un archivo llamado tabla-5.txt con la informacion de salida
+-------------------------------------------------------------------------
+Para exportar una funcion lo hacemos de la siguiente forma
+
+const crearArchivo = async (base = 5)=>{
+   try {
+       console.log('-------------------------');
+       console.log(` Tabla de Multiplicar de `, base);
+       console.log('-------------------------');
+       let salida ='';
+       for (let i = 1; i <= 10; i++ ) {
+           salida += `${base} x ${i} = ${base*i} \n`;
+       }
+       console.log(salida);
+       fs.writeFile(`tabla-${base}.txt`,salida,(err)=>{
+           if(err)throw err;
+           console.log('Archivo Creado mi pana');
+       });
+       return `tabla-${base}.txt`
+   }catch (e) {
+       throw e;
+   }
+ 
+}
+module.exports = {
+  crearArchivo
+}
+
+Module exports y el nombre de la funcion luego donde la vamos a utilizar realizamos:
+const{crearArchivo} = require('./helpers/multiplicar');
+require y especificamos la ruta donde se encuentra
+
+----------------------------------------------------------------------------------
+#/bin/bash

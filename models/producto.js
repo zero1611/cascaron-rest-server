@@ -32,7 +32,10 @@ const PrpductoSchema = Schema({
     disponible: {
         type: Boolean,
         default: true
-    }
+    },
+    img:{
+        type: String
+    },
 
 });
 PrpductoSchema.methods.toJSON = function () {
